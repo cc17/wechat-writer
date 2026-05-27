@@ -17,22 +17,18 @@
 
 ## 效果预览
 
-> TODO: 在这里补一张顶部 hero + 正文整体效果截图。
+> 复制到公众号后的编辑器截图
+
+![微信公众号编辑器粘贴效果](docs/screenshots/wechat-editor.png)
+
+> 增强模块细节图，例如 VS hero、时间轴、对比卡片
+
+![增强模块细节](docs/screenshots/modules.png)
+
+> TODO: 后续补一张顶部 hero + 正文整体效果长图。
 
 <!--
 ![整体效果预览](docs/screenshots/preview-full.png)
--->
-
-> TODO: 在这里补一张复制到公众号后的编辑器截图。
-
-<!--
-![微信公众号编辑器粘贴效果](docs/screenshots/wechat-editor.png)
--->
-
-> TODO: 在这里补一张增强模块细节图，例如 VS hero、时间轴、对比卡片。
-
-<!--
-![增强模块细节](docs/screenshots/modules.png)
 -->
 
 ## 适合什么文章
