@@ -1,0 +1,13 @@
+{
+  "primary": "#6253C9",
+  "secondary": "#5B8F22",
+  "warning": "#9A5B08",
+  "text": "#1F1F1F",
+  "muted": "#6F6F68",
+  "border": "#DDDCD5",
+  "soft": "#EFEDFF",
+  "secondarySoft": "#EDF6E4",
+  "warningSoft": "#FFF2DC",
+  "panel": "#F5F4EE",
+  "codeBackground": "#F7F5EE"
+}

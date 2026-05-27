@@ -1,0 +1,4 @@
+interface:
+  display_name: "WeChat Writer"
+  short_description: "Markdown to WeChat-ready HTML and covers"
+  default_prompt: "Use $wechat-writer to turn my Markdown article into a polished WeChat-ready HTML page."
