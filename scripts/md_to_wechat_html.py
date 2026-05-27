@@ -120,7 +120,7 @@ def render_hero_compare(lines: list[str], theme: dict[str, str]) -> str:
       </section>
     """
     return (
-        '<section data-wechat-module="hero-compare" style="position:relative;margin:0 0 34px;padding:30px 28px;background:#1B1128;border-radius:14px;">'
+        '<section data-wechat-module="hero-compare" style="position:relative;margin:0 0 34px;padding:26px 18px;background:#1B1128;border-radius:14px;">'
         f'<div style="display:flex;gap:0;align-items:flex-start;justify-content:space-between;">{left}'
         f'<div style="position:absolute;left:50%;top:30px;bottom:30px;width:1px;background:#6552C8;"></div>'
         f'<div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:999px;background:#332553;border:1px solid #6552C8;color:#ffffff;text-align:center;line-height:48px;font-size:15px;font-weight:800;">VS</div>'
@@ -132,7 +132,7 @@ def render_callout(kind: str, lines: list[str], theme: dict[str, str]) -> str:
     color, background = accent_for(kind, theme)
     text = styled_text(" ".join(line.strip() for line in lines if line.strip()), theme)
     return (
-        f'<blockquote data-wechat-module="callout" style="margin:4px 0 28px;padding:16px 18px;background:{background};border-left:5px solid {color};'
+        f'<blockquote data-wechat-module="callout" style="margin:4px 0 28px;padding:14px 14px;background:{background};border-left:5px solid {color};'
         f'border-radius:0 8px 8px 0;color:{color};font-size:17px;line-height:1.85;font-weight:700;">{text}</blockquote>'
     )
 
@@ -194,7 +194,7 @@ def render_timeline(lines: list[str], theme: dict[str, str]) -> str:
             f'<div style="margin-left:98px;color:{theme["muted"]};font-size:13px;line-height:1.5;">{styled_text(desc, theme)}</div></div>'
         )
     return (
-        f'<section data-wechat-module="timeline" style="margin:8px 0 30px;padding:20px 18px;background:{theme["panel"]};border-radius:12px;">'
+        f'<section data-wechat-module="timeline" style="margin:8px 0 30px;padding:18px 14px;background:{theme["panel"]};border-radius:12px;">'
         f'<div style="margin:0 0 16px;color:{theme["text"]};font-size:16px;font-weight:800;">叙事空间对比</div>'
         f'{"".join(items)}</section>'
     )
@@ -205,7 +205,7 @@ def render_placeholder(lines: list[str], theme: dict[str, str]) -> str:
     title = data.get("title", "图片占位")
     hint = data.get("hint", "可在这里放置截图、封面或数据图")
     return (
-        f'<section data-wechat-module="placeholder" style="margin:8px 0 30px;padding:28px 18px;background:{theme["panel"]};border:1px dashed #C8C5BA;border-radius:12px;text-align:center;">'
+        f'<section data-wechat-module="placeholder" style="margin:8px 0 30px;padding:24px 14px;background:{theme["panel"]};border:1px dashed #C8C5BA;border-radius:12px;text-align:center;">'
         f'<div style="margin:0 auto 10px;width:34px;height:34px;border:2px solid #8A8981;border-radius:8px;color:#8A8981;line-height:30px;font-size:20px;font-weight:800;">□</div>'
         f'<div style="margin:0 0 6px;color:#77766F;font-size:16px;line-height:1.5;font-weight:800;">{html.escape(title)}</div>'
         f'<div style="color:#999891;font-size:14px;line-height:1.6;">{html.escape(hint)}</div></section>'
@@ -341,7 +341,7 @@ def style_markdown_html(markdown_html: str, modules: dict[str, str], theme: dict
     for tag in soup.find_all("blockquote"):
         if tag.get("data-wechat-module"):
             continue
-        add_style(tag, f'margin:4px 0 28px;padding:16px 18px;background:{theme["warningSoft"]};border-left:5px solid {theme["warning"]};border-radius:0 8px 8px 0;color:{theme["warning"]};font-size:17px;line-height:1.85;font-weight:700;')
+        add_style(tag, f'margin:4px 0 28px;padding:14px 14px;background:{theme["warningSoft"]};border-left:5px solid {theme["warning"]};border-radius:0 8px 8px 0;color:{theme["warning"]};font-size:17px;line-height:1.85;font-weight:700;')
         for child in tag.find_all("p"):
             child.unwrap()
     for tag in soup.find_all("strong"):
@@ -381,7 +381,7 @@ def style_markdown_html(markdown_html: str, modules: dict[str, str], theme: dict
                 color = theme["primary"] if index == 1 else theme["secondary"] if index == 2 else theme["text"]
                 add_style(td, f'padding:13px 10px;color:{color};font-size:15px;line-height:1.55;text-align:left;border-bottom:1px solid {theme["border"]};vertical-align:top;')
         wrapper = soup.new_tag("section")
-        wrapper["style"] = f'margin:8px 0 28px;padding:16px;background:#ffffff;border:1px solid {theme["border"]};border-radius:12px;overflow-x:auto;'
+        wrapper["style"] = f'margin:8px 0 28px;padding:12px;background:#ffffff;border:1px solid {theme["border"]};border-radius:12px;overflow-x:auto;'
         table.wrap(wrapper)
 
     return str(soup)
@@ -584,7 +584,7 @@ def render_blocks_fallback(markdown: str, theme: dict[str, str]) -> str:
 
 def render_page(article_html: str, title: str, theme: dict[str, str]) -> str:
     article = (
-        f'<section id="wechat-article" style="box-sizing:border-box;max-width:677px;margin:0 auto;padding:34px 20px 44px;background:#ffffff;color:{theme["text"]};font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,sans-serif;">'
+        f'<section id="wechat-article" style="box-sizing:border-box;max-width:677px;margin:0 auto;padding:28px 0 40px;background:#ffffff;color:{theme["text"]};font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,sans-serif;">'
         f"{article_html}\n</section>"
     )
     return f"""<!doctype html>
