@@ -9,6 +9,7 @@
 ## 为什么值得试试
 
 - **一键复制到公众号**：生成的 HTML 自带复制按钮，只复制正文区域，不复制预览页工具栏。
+- **默认同步生成封面**：生成 HTML 时默认同时产出 `<source-name>.cover.png`，封面会根据文章主题提炼关键视觉和短标题。
 - **保留 Markdown 通用性**：标准 Markdown 交给 `markdown-it-py` 解析，支持标题、列表、嵌套列表、引用、图片、表格、代码块、删除线等常见语法。
 - **更像公众号文章，而不是网页**：所有关键样式都转成 inline style，尽量适配微信公众号编辑器的粘贴行为。
 - **支持增强模块**：普通 Markdown 不够表达设计意图时，可以用 `:::hero-compare`、`:::callout`、`:::compare-cards`、`:::timeline`、`:::placeholder` 做出更像深度分析文章的视觉模块。
@@ -75,6 +76,7 @@ $wechat-writer 帮我把 article.md 优化成公众号 HTML
 
 - `article.enhanced.md`：AI 规划后的增强 Markdown
 - `article.wechat.html`：可打开预览、可一键复制到公众号的 HTML
+- `article.cover.png`：根据文章内容生成的公众号封面
 - `article.intro.md`：公众号简介和备选标题，如果你需要
 
 你也可以直接运行脚本：

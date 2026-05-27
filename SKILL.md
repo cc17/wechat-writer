@@ -5,7 +5,7 @@ description: Create polished WeChat Official Account article assets from Markdow
 
 # WeChat Writer
 
-Use this skill to turn article content into publishable WeChat Official Account materials: styled HTML that can be copied into the WeChat editor, a concise article intro, and optional cover art.
+Use this skill to turn article content into publishable WeChat Official Account materials: styled HTML that can be copied into the WeChat editor, a concise article intro, and a cover image.
 
 ## Core Workflow
 
@@ -16,7 +16,7 @@ Use this skill to turn article content into publishable WeChat Official Account 
    - A short article intro/summary suitable for the WeChat article description field.
    - An enhanced Markdown draft when visual modules would improve the article.
    - A polished HTML preview page with inline styles and a copy button.
-   - A cover image when requested.
+   - A cover image by default whenever generating HTML, unless the user explicitly says not to.
 4. Write output files next to the source Markdown unless the user specifies another directory.
 
 ## Two-Stage Rendering
@@ -154,15 +154,16 @@ When the user asks for an article intro, produce 1-3 options unless they request
 
 ## Cover Generation
 
-When the user asks to generate a cover:
+When generating WeChat HTML, also generate a cover image by default. Skip only when the user explicitly says not to generate one.
 
 1. First derive the core visual metaphor from the article topic.
 2. Use the `imagegen` skill/tool if available.
 3. Follow `references/style-guide.md` for the default cover direction: editorial/product-analysis composition, purple-vs-green contrast when comparing two sides, clean cards/dividers, strong negative space, and no tiny text.
 4. Prefer a 2.35:1 landscape composition for main WeChat cover images unless the user gives another size.
-5. Generate a cover prompt that includes style, subject, palette, lighting, composition, and "no text" unless the user explicitly asks for text in the image.
+5. Include short, high-value cover text when it materially improves the cover, especially article title keywords or the main contrast. Keep text large and sparse; avoid long subtitles and tiny labels.
+6. Save the cover next to the source Markdown as `<source-name>.cover.png`.
 
-If image generation is unavailable, provide a precise prompt the user can run later.
+If image generation is unavailable, provide a precise prompt the user can run later and still save any prompt/cover notes next to the article when useful.
 
 ## Output Naming
 
@@ -170,7 +171,7 @@ Use predictable filenames:
 
 - `<source-name>.wechat.html` for the copyable preview page.
 - `<source-name>.intro.md` for generated intros when saved separately.
-- `<source-name>.cover.png` for generated cover images when available.
+- `<source-name>.cover.png` for generated cover images.
 
 ## Quality Check
 
@@ -179,4 +180,5 @@ Before finishing:
 - Open or inspect the generated HTML enough to verify the copy button exists.
 - Confirm the article body root has `id="wechat-article"`.
 - Confirm important article styles are inline.
+- Confirm the cover file exists when HTML was generated, unless the user opted out.
 - Mention the output path and any generated intro/cover assets.
